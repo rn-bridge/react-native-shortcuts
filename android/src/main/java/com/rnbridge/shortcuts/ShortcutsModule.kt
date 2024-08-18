@@ -1,11 +1,11 @@
-package com.rnbridge.reactnativeshortcuts
+package com.rnbridge.shortcuts
 
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.Promise
 
-class ReactNativeShortcutsModule(reactContext: ReactApplicationContext) :
+class ShortcutsModule(reactContext: ReactApplicationContext) :
   ReactContextBaseJavaModule(reactContext) {
 
   override fun getName(): String {
@@ -20,6 +20,6 @@ class ReactNativeShortcutsModule(reactContext: ReactApplicationContext) :
   }
 
   companion object {
-    const val NAME = "ReactNativeShortcuts"
+    const val NAME = "RNShortcuts"
   }
 }

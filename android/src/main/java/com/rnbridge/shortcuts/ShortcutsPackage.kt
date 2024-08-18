@@ -1,4 +1,4 @@
-package com.rnbridge.reactnativeshortcuts
+package com.rnbridge.shortcuts
 
 import com.facebook.react.ReactPackage
 import com.facebook.react.bridge.NativeModule
@@ -6,9 +6,9 @@ import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.uimanager.ViewManager
 
 
-class ReactNativeShortcutsPackage : ReactPackage {
+class ShortcutsPackage : ReactPackage {
   override fun createNativeModules(reactContext: ReactApplicationContext): List<NativeModule> {
-    return listOf(ReactNativeShortcutsModule(reactContext))
+    return listOf(ShortcutsModule(reactContext))
   }
 
   override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> {
