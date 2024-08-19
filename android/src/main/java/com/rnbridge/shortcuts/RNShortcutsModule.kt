@@ -13,7 +13,7 @@ import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.ReadableMap
 import com.facebook.react.bridge.WritableMap
 
-class ShortcutsModule(reactContext: ReactApplicationContext) :
+class RNShortcutsModule(reactContext: ReactApplicationContext) :
     ReactContextBaseJavaModule(reactContext) {
 
     private var context: ReactApplicationContext = reactContext

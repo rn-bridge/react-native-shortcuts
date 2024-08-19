@@ -3,11 +3,9 @@ import {
   addShortcut,
   getShortcutById,
   isShortcutExists,
-  onShortcutUsed,
   removeAllShortcuts,
   removeShortcut
 } from '@rn-bridge/react-native-shortcuts';
-import React from 'react';
 
 const Button = ({
   title,
@@ -28,12 +26,6 @@ const Button = ({
 };
 
 export const App = () => {
-  React.useEffect(() => {
-    onShortcutUsed((id: string) => {
-      console.log('Shortcut id: ', id);
-    });
-  }, []);
-
   return (
     <View style={styles.container}>
       <Button

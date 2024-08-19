@@ -1,4 +1,5 @@
 #import "AppDelegate.h"
+#import "RNShortcuts.h"
 
 #import <React/RCTBundleURLProvider.h>
 
@@ -10,8 +11,12 @@
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
-
+  
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
+}
+
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
+  [RNShortcuts performActionForShortcutItem:shortcutItem completionHandler:completionHandler];
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
