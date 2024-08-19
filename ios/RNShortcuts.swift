@@ -15,6 +15,11 @@ class RNShortcuts: RCTEventEmitter {
         completionHandler(true)
     }
     
+    @objc(isShortcutSupported: withReject:)
+    func isShortcutSupported(resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
+        resolve(isSupported())
+    }
+    
     @objc(onShortcutUsed:)
     func onShortcutUsed(callback: @escaping RCTResponseSenderBlock ){
         DispatchQueue.main.async {
@@ -137,6 +142,14 @@ class RNShortcuts: RCTEventEmitter {
             
             resolve(shortcut != nil)
             
+        }
+    }
+    
+    private func isSupported() -> Bool {
+        if #available(iOS 9.0, *) {
+            return true
+        } else {
+            return false
         }
     }
 }

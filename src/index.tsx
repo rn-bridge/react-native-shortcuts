@@ -62,6 +62,10 @@ export async function isShortcutExists(id: string): Promise<boolean> {
   return RNShortcuts.isShortcutExists(id);
 }
 
+export async function isShortcutSupported(): Promise<boolean> {
+  return RNShortcuts.isShortcutSupported();
+}
+
 export function onShortcutUsed(callback: (id: string) => void) {
   return RNShortcuts.onShortcutUsed(callback);
 }

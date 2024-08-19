@@ -3,6 +3,7 @@ import {
   addShortcut,
   getShortcutById,
   isShortcutExists,
+  isShortcutSupported,
   removeAllShortcuts,
   removeShortcut
 } from '@rn-bridge/react-native-shortcuts';
@@ -99,6 +100,17 @@ export const App = () => {
           getShortcutById('open')
             .then((response) => Alert.alert('', JSON.stringify(response)))
             .catch((err) => Alert.alert('', err));
+        }}
+      />
+
+      <Button
+        textStyle={styles.textStyle}
+        style={styles.button}
+        title="Is Supported"
+        onPress={async () => {
+          isShortcutSupported().then((response) =>
+            Alert.alert('', JSON.stringify(response))
+          );
         }}
       />
     </View>

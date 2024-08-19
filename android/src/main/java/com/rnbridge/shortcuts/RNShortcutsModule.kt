@@ -2,6 +2,7 @@ package com.rnbridge.shortcuts
 
 import android.content.Intent
 import android.os.Build
+import androidx.annotation.ChecksSdkIntAtLeast
 import androidx.core.content.pm.ShortcutInfoCompat
 import androidx.core.content.pm.ShortcutManagerCompat
 import com.facebook.react.bridge.Arguments
@@ -23,6 +24,11 @@ class RNShortcutsModule(reactContext: ReactApplicationContext) :
     }
 
     @ReactMethod
+    fun isShortcutSupported(promise: Promise) {
+        promise.resolve(isSupported)
+    }
+
+    @ReactMethod
     fun onShortcutUsed(callback: Callback) {
         val shortCutId = currentActivity?.intent?.getStringExtra("shortcutId")
         if (shortCutId != null) {
@@ -32,7 +38,7 @@ class RNShortcutsModule(reactContext: ReactApplicationContext) :
 
     @ReactMethod
     fun addShortcut(params: ReadableMap, promise: Promise) {
-        if (Build.VERSION.SDK_INT < 25) {
+        if (!isSupported) {
             promise.reject(Error("Unsupported os version"))
             return
         }
@@ -52,7 +58,7 @@ class RNShortcutsModule(reactContext: ReactApplicationContext) :
 
     @ReactMethod
     fun updateShortcut(params: ReadableMap, promise: Promise) {
-        if (Build.VERSION.SDK_INT < 25) {
+        if (!isSupported) {
             promise.reject(Error("Unsupported os version"))
             return
         }
@@ -80,7 +86,7 @@ class RNShortcutsModule(reactContext: ReactApplicationContext) :
 
     @ReactMethod
     fun removeShortcut(id: String, promise: Promise) {
-        if (Build.VERSION.SDK_INT < 25) {
+        if (!isSupported) {
             promise.reject(Error("Unsupported os version"))
             return
         }
@@ -95,7 +101,7 @@ class RNShortcutsModule(reactContext: ReactApplicationContext) :
 
     @ReactMethod
     fun removeAllShortcuts(promise: Promise) {
-        if (Build.VERSION.SDK_INT < 25) {
+        if (!isSupported) {
             promise.reject(Error("Unsupported os version"))
             return
         }
@@ -156,6 +162,12 @@ class RNShortcutsModule(reactContext: ReactApplicationContext) :
         map.putString("longLabel", longLabel.toString())
         return map
     }
+
+    private val isSupported: Boolean
+        @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.N_MR1)
+        get() {
+            return Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1
+        }
 
     companion object {
         const val NAME = "RNShortcuts"

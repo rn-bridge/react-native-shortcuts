@@ -5,6 +5,9 @@
 
 @interface RCT_EXTERN_MODULE(RNShortcuts, RCTEventEmitter)
 
+RCT_EXTERN_METHOD(isShortcutSupported:(RCTPromiseResolveBlock)resolve
+                  withReject:(RCTPromiseRejectBlock)reject)
+
 RCT_EXTERN_METHOD(onShortcutUsed:(RCTResponseSenderBlock)callback)
 
 RCT_EXTERN_METHOD(addShortcut:(NSDictionary *)params
