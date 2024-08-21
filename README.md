@@ -50,18 +50,18 @@ No setup needed
 
 ### Methods
 
-* [`addShortcut`](#addShortcut)
-* [`updateShortcut`](#updateShortcut)
-* [`removeShortcut`](#removeShortcut)
-* [`removeAllShortcuts`](#removeAllShortcuts)
-* [`getShortcutById`](#getShortcutById)
-* [`isShortcutExists`](#isShortcutExists)
-* [`isShortcutSupported`](#isShortcutSupported)
-* [`getInitialShortcutId`](#getInitialShortcutId)
-* [`addOnShortcutUsedListener`](#addOnShortcutUsedListener)
-* [`removeOnShortcutUsedListener`](#removeOnShortcutUsedListener)
-
----
+|  Name                                                         |  Description |
+|   ---                                                         |     ---      |
+| [`addShortcut`](#addShortcut)                                 | Adds the shortcut(android), quick action(ios) for the given details. |
+| [`updateShortcut`](#updateShortcut)                           | Updates the shortcut or quick action details. |
+| [`removeShortcut`](#removeShortcut)                           | Removes the specific shortcut. For android in case if the user changes your app shortcut to pinned shortcut, app shortcut will be removed but pinned shortcut will be still visible but in disabled state. This shortcut is no longer valid and is not clickable. |
+| [`removeAllShortcuts`](#removeAllShortcuts)                   | Removes all the shortcuts. For android in case if the user changes your app shortcuts to pinned shortcuts, app shortcuts will be removed but pinned shortcuts will be still visible but in disabled state. These shortcuts are no longer valid and are not clickable. |
+| [`getShortcutById`](#getShortcutById)                         | Returns the shortcut details such as id, title, longLabel, subtitle. |
+| [`isShortcutExists`](#isShortcutExists)                       | Returns whether the shortcut is registered with given id. | 
+| [`isShortcutSupported`](#isShortcutSupported)                 | Returns whether your device supports shortcuts(android), quick actions(ios). |
+| [`getInitialShortcutId`](#getInitialShortcutId)               | If the initial app launch was triggered by a shortcut, it will give the id of that shortcut, otherwise it will give null. |
+| [`addOnShortcutUsedListener`](#addOnShortcutUsedListener)        | If the app is in background and the app is launchced by a shortcut, it will give the id of that shortcut.  |
+| [`removeOnShortcutUsedListener`](#removeOnShortcutUsedListener)  | Removes the listener. You app no longer receives events. |
 
 ## Usage
 
