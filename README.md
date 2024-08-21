@@ -10,7 +10,7 @@ Fully compatible with TypeScript.
 
 | Android  |  iOS |
 |---|---|
-| ![android](https://github.com/user-attachments/assets/e5ada6e2-e5d2-4ef5-a026-4778c98b42f5)  | ![ios](https://github.com/user-attachments/assets/275a23bd-d01c-43ac-be57-2d6c337067db) |
+|<img src="https://github.com/user-attachments/assets/e5ada6e2-e5d2-4ef5-a026-4778c98b42f5" width="325" height="700" />  | <img src="https://github.com/user-attachments/assets/275a23bd-d01c-43ac-be57-2d6c337067db" width="325" height="700" /> |
 
 ## Supported platforms
 
