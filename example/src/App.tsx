@@ -1,5 +1,5 @@
 import { StyleSheet, View, TouchableOpacity, Text, Alert } from 'react-native';
-import { Shortcuts } from '@rn-bridge/react-native-shortcuts';
+import Shortcuts from '@rn-bridge/react-native-shortcuts';
 
 const Button = ({
   title,

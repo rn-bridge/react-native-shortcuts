@@ -25,14 +25,14 @@ const RNShortcuts = NativeModules.RNShortcuts
 const nativeModule = Platform.OS === 'ios' ? NativeModules.RNShortcuts : null;
 const shortcutsEventEmitter = new NativeEventEmitter(nativeModule);
 
-interface shortcutResponseType {
+export interface shortcutResponseType {
   id: string;
   title: string;
   subTitle?: string;
   longLabel?: string;
 }
 
-interface shortcutParamsType extends shortcutResponseType {
+export interface shortcutParamsType extends shortcutResponseType {
   iconName?: string;
 }
 
@@ -99,7 +99,7 @@ function removeOnShortcutUsedListener() {
   shortcutsEventEmitter.removeAllListeners('onShortcutUsed');
 }
 
-export const Shortcuts = {
+export default {
   addShortcut,
   updateShortcut,
   removeShortcut,
