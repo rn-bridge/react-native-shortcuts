@@ -60,12 +60,15 @@ class RNShortcutsModule(reactContext: ReactApplicationContext) :
 
     @ReactMethod
     fun removeShortcut(id: String, promise: Promise) = handleShortcutOperation(promise) {
+        ShortcutManagerCompat.disableShortcuts(context, listOf(id), "Shortcut is no longer valid")
         ShortcutManagerCompat.removeDynamicShortcuts(context, listOf(id))
         promise.resolve(true)
     }
 
     @ReactMethod
     fun removeAllShortcuts(promise: Promise) = handleShortcutOperation(promise) {
+        val shortcuts = ShortcutManagerCompat.getDynamicShortcuts(context).map { it.id }
+        ShortcutManagerCompat.disableShortcuts(context, shortcuts, "Shortcut is no longer valid")
         ShortcutManagerCompat.removeAllDynamicShortcuts(context)
         promise.resolve(true)
     }
