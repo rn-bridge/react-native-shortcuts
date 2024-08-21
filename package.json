@@ -5,7 +5,7 @@
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
   "module": "./lib/module/index.js",
-  "types": "./src/types/inde.d.ts",
+  "types": "./src/types/index.d.ts",
   "files": [
     "src",
     "lib",
