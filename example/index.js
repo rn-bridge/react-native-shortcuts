@@ -1,7 +1,7 @@
 import { Alert, AppRegistry } from 'react-native';
 import { App } from './src/App';
 import { name as appName } from './app.json';
-import { Shortcuts } from '@rn-bridge/react-native-shortcuts';
+import Shortcuts from '@rn-bridge/react-native-shortcuts';
 
 const callback = (id) => {
   console.log('Shortcut Id:', id);
