@@ -16,7 +16,8 @@
 }
 
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
-  [RNShortcuts performActionForShortcutItem:shortcutItem completionHandler:completionHandler];
+  [RNShortcuts handleShortcutItem:shortcutItem];
+  completionHandler(YES);
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge

@@ -20,10 +20,9 @@ class RNShortcuts: RCTEventEmitter {
         return ["onShortcutUsed"]
     }
     
-    @objc class func performActionForShortcutItem(_ shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+    @objc class func handleShortcutItem(_ shortcutItem: UIApplicationShortcutItem) {
         RNShortcuts.shortcutItemType = shortcutItem.type
         RNShortcuts.shared?.sendEvent(withName: "onShortcutUsed", body: shortcutItem.type)
-        completionHandler(true)
     }
     
     @objc(getInitialShortcutId: withReject:)
