@@ -1,11 +1,11 @@
 {
   "name": "@rn-bridge/react-native-shortcuts",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "App shortcuts",
   "source": "./src/index.tsx",
-  "main": "./src/index.tsx",
+  "main": "./lib/commonjs/index.js",
   "module": "./lib/module/index.js",
-  "types": "./src/types/index.d.ts",
+  "types": "./lib/typescript/commonjs/src/index.d.ts",
   "files": [
     "src",
     "lib",
@@ -28,7 +28,8 @@
     "test": "jest",
     "typecheck": "tsc",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "prepare": "bob build"
+    "prepare": "bob build",
+    "postinstall": "bob build"
   },
   "keywords": [
     "react-native",
@@ -47,7 +48,7 @@
   "bugs": {
     "url": "https://github.com/rn-bridge/react-native-shortcuts/issues"
   },
-  "homepage": "https://github.com/rn-bridge/react-native-shortcuts#readme",
+  "homepage": "https://github.com/rn-bridge",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
