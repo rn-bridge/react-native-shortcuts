@@ -1,12 +1,5 @@
 import { StyleSheet, View, TouchableOpacity, Text, Alert } from 'react-native';
-import {
-  addShortcut,
-  getShortcutById,
-  isShortcutExists,
-  isShortcutSupported,
-  removeAllShortcuts,
-  removeShortcut
-} from '@rn-bridge/react-native-shortcuts';
+import { Shortcuts } from '@rn-bridge/react-native-shortcuts';
 
 const Button = ({
   title,
@@ -26,6 +19,10 @@ const Button = ({
   );
 };
 
+const id = 'a426a46b-7389-431c-9ea8-8b370e0c65fc';
+const title = 'Open App (Shortcut)';
+const iconName = 'app_shortcut';
+
 export const App = () => {
   return (
     <View style={styles.container}>
@@ -34,13 +31,18 @@ export const App = () => {
         style={styles.button}
         title="Add Shortcut"
         onPress={async () => {
-          addShortcut({
-            id: 'open',
-            shortLabel: 'Open',
-            longLabel: 'Open App'
+          Shortcuts.addShortcut({
+            id,
+            title,
+            iconName
           })
-            .then(() => Alert.alert('', 'Success'))
-            .catch((err) => Alert.alert('', err));
+            .then((response) =>
+              Alert.alert(
+                'Success',
+                `id: ${response.id}\ntitle: ${response.title}`
+              )
+            )
+            .catch((err) => Alert.alert('Error', err.message));
         }}
       />
 
@@ -49,13 +51,17 @@ export const App = () => {
         style={styles.button}
         title="Update Shortcut"
         onPress={async () => {
-          addShortcut({
-            id: 'open',
-            shortLabel: 'Open App',
-            longLabel: 'Open Application'
+          Shortcuts.updateShortcut({
+            id,
+            title: 'Open App'
           })
-            .then(() => Alert.alert('', 'Success'))
-            .catch((err) => Alert.alert('', err));
+            .then((response) =>
+              Alert.alert(
+                'Success',
+                `id: ${response.id}\ntitle: ${response.title}`
+              )
+            )
+            .catch((err) => Alert.alert('Error', err.message));
         }}
       />
 
@@ -64,9 +70,9 @@ export const App = () => {
         style={styles.button}
         title="Remove Shortcut"
         onPress={async () => {
-          removeShortcut('open')
-            .then(() => Alert.alert('', 'Success'))
-            .catch((err) => Alert.alert('', err));
+          Shortcuts.removeShortcut(id)
+            .then(() => Alert.alert('Success', `Successfully removed ${id}`))
+            .catch((err) => Alert.alert('Error', err.message));
         }}
       />
 
@@ -75,9 +81,9 @@ export const App = () => {
         style={styles.button}
         title="Remove All Shortcuts"
         onPress={async () => {
-          removeAllShortcuts()
-            .then(() => Alert.alert('', 'Success'))
-            .catch((err) => Alert.alert('', err));
+          Shortcuts.removeAllShortcuts()
+            .then(() => Alert.alert('Success', 'Removed all shortcuts'))
+            .catch((err) => Alert.alert('Error', err.message));
         }}
       />
 
@@ -86,9 +92,16 @@ export const App = () => {
         style={styles.button}
         title="Is Shortcut Exists"
         onPress={async () => {
-          isShortcutExists('open')
-            .then((response) => Alert.alert('', JSON.stringify(response)))
-            .catch((err) => Alert.alert('', err));
+          Shortcuts.isShortcutExists(id)
+            .then((response) =>
+              Alert.alert(
+                '',
+                response
+                  ? 'Shortcut exists!!'
+                  : `Shortcut not registered with id ${id}`
+              )
+            )
+            .catch((err) => Alert.alert('Error', err.message));
         }}
       />
 
@@ -97,9 +110,18 @@ export const App = () => {
         style={styles.button}
         title="Get Shortcut"
         onPress={async () => {
-          getShortcutById('open')
-            .then((response) => Alert.alert('', JSON.stringify(response)))
-            .catch((err) => Alert.alert('', err));
+          Shortcuts.getShortcutById(id)
+            .then((response) => {
+              if (response) {
+                Alert.alert(
+                  'Success',
+                  `id: ${response.id}\ntitle: ${response.title}`
+                );
+              } else {
+                Alert.alert('Error', `Shortcut not registered with id ${id}`);
+              }
+            })
+            .catch((err) => Alert.alert('Error', err.message));
         }}
       />
 
@@ -108,8 +130,8 @@ export const App = () => {
         style={styles.button}
         title="Is Supported"
         onPress={async () => {
-          isShortcutSupported().then((response) =>
-            Alert.alert('', JSON.stringify(response))
+          Shortcuts.isShortcutSupported().then((response) =>
+            Alert.alert('Supported', JSON.stringify(response))
           );
         }}
       />
