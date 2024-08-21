@@ -6,6 +6,12 @@ Android Shortcuts and iOS Quick Actions are features that allow users to quickly
 
 Fully compatible with TypeScript.
 
+## Example
+
+| Android  |  iOS |
+|---|---|
+| ![android](https://github.com/user-attachments/assets/e5ada6e2-e5d2-4ef5-a026-4778c98b42f5)  | ![ios](https://github.com/user-attachments/assets/275a23bd-d01c-43ac-be57-2d6c337067db) |
+
 ## Supported platforms
 
 | Platform  |  Support |
