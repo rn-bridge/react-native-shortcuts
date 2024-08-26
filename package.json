@@ -1,7 +1,7 @@
 {
   "name": "@rn-bridge/react-native-shortcuts",
-  "version": "0.2.0",
-  "description": "App shortcuts",
+  "version": "0.3.0",
+  "description": "React native library for android shortcuts and iOS quick actions which allow users to quickly access specific app functionalities directly from the home screen or app icon.",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
   "module": "./lib/module/index.js",
@@ -129,10 +129,5 @@
         }
       ]
     ]
-  },
-  "create-react-native-library": {
-    "type": "module-legacy",
-    "languages": "kotlin-swift",
-    "version": "0.41.0"
   }
 }
