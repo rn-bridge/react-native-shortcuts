@@ -1237,7 +1237,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - react-native-shortcuts (0.1.0):
+  - react-native-shortcuts (0.3.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1757,7 +1757,7 @@ SPEC CHECKSUMS:
   React-logger: 0a81d1a40650bbdafb255fe4616edb83feed0ee9
   React-Mapbuffer: b758bec0d9994c10a2841dfd5ec70673665fd3e2
   React-microtasksnativemodule: f25dba9c8c3f8be0b3368d52b99abd6e381dee1d
-  react-native-shortcuts: 55b5144134244ab535fe19c84e546cfda55d05c2
+  react-native-shortcuts: e696fb6b06cf76b0b683bab791dc0476a6eb5e41
   React-nativeconfig: 7af2ccce165f86b233a9f9d63295f6207e62640e
   React-NativeModulesApple: db1c1ee9dda26c9e58d824b4100fed83add82ae9
   React-perflogger: 7c4e97b47d8bc58c03fad1a6b97d96181b59aa41
